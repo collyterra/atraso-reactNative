@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, ImageBackground } from 'react-native';
 import Imagens from "../../img/img";
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { Button } from "../../components/Button/Button"; // Verifique se o caminho está correto
@@ -48,6 +47,11 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
 };
     
     return (
+        <ImageBackground
+        source={Imagens.fundo}
+        style={styles.background}
+        resizeMode="cover"
+      >
         <View style={styles.container}>
             <Image source={Imagens.logo} style={styles.help} />
 
@@ -62,7 +66,7 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
                         borderWidth: 2,
                         paddingHorizontal: 10,
                         backgroundColor: '#fff',
-                        borderColor: '#FF8F49',
+                        borderColor: '#dd2726',
                         borderRadius: 50,
                         borderTopWidth: 5,
                         borderLeftWidth: 5,
@@ -102,7 +106,7 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
                         borderWidth: 2,
                         paddingHorizontal: 10,
                         backgroundColor: '#fff',
-                        borderColor: '#ff9238',
+                        borderColor: '#dd2726',
                         borderRadius: 50,
                         borderTopWidth: 5,
                         borderLeftWidth: 5,
@@ -127,15 +131,16 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
 
             <Button
                 style={styles.button}
-                color='#004AAD'
+                color='#545454'
                 variant="primary"
                 title="Entrar" 
-                //onPress={() => navigation.navigate('cadastro')} 
+                onPress={() => navigation.navigate('HomeScreen')} 
 
-                 onPress={handleLogin} 
+                //onPress={handleLogin} 
     />
                     
         </View>
+        </ImageBackground>
     );
 };
 

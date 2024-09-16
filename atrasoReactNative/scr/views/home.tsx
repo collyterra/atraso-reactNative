@@ -8,7 +8,7 @@ const HomeScreen: React.FC<{ navigation: any }> = ({navigation}) =>{
       <Text>Home Screen</Text>
       <Button
         title="Go to Details"
-        onPress={() => navigation.navigate('LoginScreen')}
+        onPress={() => navigation.navigate('DesenvolvedoresScreen')}
       />
     </View>
   );

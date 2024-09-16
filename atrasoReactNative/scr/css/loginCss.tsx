@@ -5,13 +5,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
       },
+      background: {
+        flex: 1,
+        width:'100%',
+        height:'100%',
+    },
 
       help:{
-        width:300,
-        height:300,
-       
+        width:280,
+        height:280,
+        marginBottom:30,
+        marginTop:30
       },
      input:{
       width:280,
@@ -21,7 +26,7 @@ const styles = StyleSheet.create({
      },
      button:{ 
         width:160,
-        color:'#004AAD'
+        color:'#545454'
      },
       inputFocused:{
      position:'absolute',
