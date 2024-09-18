@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
      },
      button:{ 
         width:160,
-        color:'#545454'
+        color:'#fff',
+        backgroundColor:'#545454'
      },
       inputFocused:{
      position:'absolute',
