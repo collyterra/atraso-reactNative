@@ -17,34 +17,34 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
    // Defina a função handleLoginPress para campos obrigatórios
 
  {/*  */}
-   const handleLogin = async () => {
-    if (!emailContratante || !password) {
-        setMessage('Preencha todos os campos');
-        return;
-    }
+//    const handleLogin = async () => {
+//     if (!emailContratante || !password) {
+//         setMessage('Preencha todos os campos');
+//         return;
+//     }
 
-    console.log("Email:", emailContratante);
-    console.log("Password:", password);
+//     console.log("Email:", emailContratante);
+//     console.log("Password:", password);
 
-    try {
-        const response = await axios.post('http://localhost:8000/api/auth', {
-            emailContratante:emailContratante,
-            password:password,
-        });
+//     try {
+//         const response = await axios.post('http://localhost:8000/api/auth', {
+//             emailContratante:emailContratante,
+//             password:password,
+//         });
 
-        console.log("Resposta da API:", response.data);
+//         console.log("Resposta da API:", response.data);
 
-        if (response.data && response.data.status === 'Sucesso') {
-            navigation.navigate('homeStack', { screen: 'home' });
-        } else {
-            setMessage('Credenciais incorretas, tente novamente.');
-        }
+//         if (response.data && response.data.status === 'Sucesso') {
+//             navigation.navigate('homeStack', { screen: 'home' });
+//         } else {
+//             setMessage('Credenciais incorretas, tente novamente.');
+//         }
 
-    } catch (error) {
-        console.error('Erro ao fazer login:', error);
-        setMessage('Erro ao fazer login. Verifique suas credenciais e tente novamente.');
-    }
-};
+//     } catch (error) {
+//         console.error('Erro ao fazer login:', error);
+//         setMessage('Erro ao fazer login. Verifique suas credenciais e tente novamente.');
+//     }
+// };
     
     return (
         <ImageBackground

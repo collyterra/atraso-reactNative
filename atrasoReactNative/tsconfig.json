@@ -1,4 +1,13 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "jsx": "react"
+  },
   "extends": "expo/tsconfig.base"
 }
