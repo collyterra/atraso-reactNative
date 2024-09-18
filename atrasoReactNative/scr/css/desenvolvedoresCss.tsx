@@ -7,14 +7,17 @@ const styles = StyleSheet.create({
         height:'100%',
     },
     container: {
-        marginTop:120,
+        marginTop:150,
         marginLeft:5,
         marginRight:5,
+        marginBottom:50
       },
       header: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
+        alignItems:'center',
+        marginLeft:50
       },
       cardsContainer: {
         flexDirection: 'row',

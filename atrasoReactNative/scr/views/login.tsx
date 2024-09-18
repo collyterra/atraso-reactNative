@@ -131,10 +131,9 @@ const Login: React.FC<{ navigation: any }> = ({navigation}) => {
 
             <Button
                 style={styles.button}
-                color='#545454'
                 variant="primary"
                 title="Entrar" 
-                onPress={() => navigation.navigate('HomeScreen')} 
+                onPress={() => navigation.navigate('homeStack')} 
 
                 //onPress={handleLogin} 
     />

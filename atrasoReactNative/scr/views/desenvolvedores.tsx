@@ -112,16 +112,18 @@ const Desenvolvedores = () => (
     style={styles.background}
     resizeMode="cover"
   >
+    <ScrollView>
    <View style={styles.container}>
-  <ScrollView>
+  
     <Text style={styles.header}>Desenvolvedores</Text>
     <View style={styles.cardsContainer}>
       {profiles.map((profile, index) => (
         <ProfileCard key={index} profile={profile} />
       ))}
     </View>
-  </ScrollView>
+ 
   </View>
+  </ScrollView>
 
   </ImageBackground>
 );
