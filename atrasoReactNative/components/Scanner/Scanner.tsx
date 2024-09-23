@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 const Scanner = () => {
@@ -15,9 +15,31 @@ const Scanner = () => {
     getBarCodeScannerPermissions();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: { type: string; data: string }) => {
+  const handleBarCodeScanned = async ({ type, data }: { type: string; data: string }) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    
+    // Passando o type escaneado para a função saveData
+    await saveData({ type: parseInt(type), data });
+  };
+
+  const saveData = async (info: { type: number; data: string }) => {
+    const API = "http://172.20.10.2:8000/api/qrcode";
+    try {
+      const response = await fetch(API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(info),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to save data');
+      }
+      alert('Data saved successfully!');
+    } catch (error: any) {
+      alert(error.message);
+    }
   };
 
   if (hasPermission === null) {
@@ -28,21 +50,14 @@ const Scanner = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
+        style={{ flex: 1 }}
       />
       {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
 
 export default Scanner;
